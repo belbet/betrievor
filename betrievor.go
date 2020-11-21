@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	appName        string = "El retrievor"
+	appName        string = "El Betrievor"
 	appDescription string = "Retrieve, parse, and insert data from football database."
 	appVersion     string = "0.1"
 )
