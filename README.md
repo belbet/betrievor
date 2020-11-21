@@ -1,5 +1,7 @@
 # Betrievor CLI
 
+[![Actions Status](https://github.com/belbet/betrievor/workflows/Go/badge.svg)](https://github.com/belbet/betrievor/actions)
+
 ## Example
 
 ```
