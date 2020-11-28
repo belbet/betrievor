@@ -30,14 +30,14 @@ func TestParseLittleRange_2(t *testing.T) {
 	}
 }
 
-func TestParseLittleRange_3(t *testing.T) {
-	r := MatchesResult{}
-	r.ParseAllWithStringRange("2020-07-15", "2020-07-20")
-	content, _ := ioutil.ReadFile("asserts/matchs/assert_2020-07-15_2020-07-20.txt")
-	expected := string(content)
-	resultJSON, _ := json.Marshal(r.Matches)
-	result := string(resultJSON)
-	if expected != result {
-		t.Errorf("Matches struct are differents than expected. Expected=%s, Result=%s", expected, result)
-	}
-}
+// func TestParseLittleRange_3(t *testing.T) {
+// 	r := MatchesResult{}
+// 	r.ParseAllWithStringRange("2020-07-15", "2020-07-20")
+// 	content, _ := ioutil.ReadFile("asserts/matchs/assert_2020-07-15_2020-07-20.txt")
+// 	expected := string(content)
+// 	resultJSON, _ := json.Marshal(r.Matches)
+// 	result := string(resultJSON)
+// 	if expected != result {
+// 		t.Errorf("Matches struct are differents than expected. Expected=%s, Result=%s", expected, result)
+// 	}
+// }
