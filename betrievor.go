@@ -7,6 +7,7 @@ import (
 	"time"
 
 	retrievor "github.com/belbet/betrievor/retrievor"
+
 	"github.com/caarlos0/env"
 	"github.com/urfave/cli/v2"
 	rdb "gopkg.in/rethinkdb/rethinkdb-go.v6"
@@ -68,6 +69,12 @@ var (
 		Password: d.Password,
 	})
 )
+
+func fte(c *cli.Context) error {
+	// ParsePageFTE(c.String("ligue-1"))
+	fmt.Println("Not implemented yet.")
+	return nil
+}
 
 func clubs(c *cli.Context) error {
 	log.Println("Start clubs retrieving...")
@@ -191,6 +198,27 @@ func main() {
 						&cli.BoolFlag{
 							Name:        "dry-run",
 							Usage:       "Parse all matches in date range but does not insert into database",
+							Aliases:     []string{"d"},
+							Required:    false,
+							DefaultText: "false",
+						},
+					},
+				},
+				{
+					Name:   "fte",
+					Usage:  "Retrieve upcoming matches on FiveThirtyEight ",
+					Action: fte,
+					Flags: []cli.Flag{
+						&cli.StringFlag{
+							Name:        "competition",
+							Usage:       "Competition name",
+							Aliases:     []string{"c"},
+							Required:    false,
+							DefaultText: "ligue-1",
+						},
+						&cli.BoolFlag{
+							Name:        "dry-run",
+							Usage:       "Parse all matches but does not insert into database",
 							Aliases:     []string{"d"},
 							Required:    false,
 							DefaultText: "false",
