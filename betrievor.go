@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	retrievor "github.com/belbet/betrievor/retrievor"
+	r "github.com/belbet/betrievor/retrievor"
 
 	"github.com/caarlos0/env"
 	"github.com/urfave/cli/v2"
@@ -71,14 +71,19 @@ var (
 )
 
 func fte(c *cli.Context) error {
-	// ParsePageFTE(c.String("ligue-1"))
-	fmt.Println("Not implemented yet.")
+	matches := r.MatchesProba{}
+	log.Printf("Retrieving %s\n", c.String("competition"))
+	err := matches.ParsePageFTE(c.String("competition"))
+	if err != nil {
+		return err
+	}
+	// TODO: Insert to DB
 	return nil
 }
 
 func clubs(c *cli.Context) error {
 	log.Println("Start clubs retrieving...")
-	var p = retrievor.ClubParse{}
+	var p = r.ClubParse{}
 	dryRun := c.String("dry-run")
 	var countries = []string{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1"}
 	// Iterate trough all pages
@@ -97,7 +102,7 @@ func clubs(c *cli.Context) error {
 
 func worker(job <-chan jobStruct, results chan<- bool, c *cli.Context) {
 	for j := range job {
-		r := retrievor.MatchesResult{}
+		r := r.MatchesResult{}
 		date := j.t.Format("2006-01-02")
 		dryRun := c.String("dry-run")
 		err := r.ParsePage(date)
