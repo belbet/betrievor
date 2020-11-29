@@ -99,7 +99,7 @@ func TestGetCompetitorIDFromMap2(t *testing.T) {
 }
 
 func TestGetCompetitorIDFromMap3(t *testing.T) {
-	i := "N\u00eemes"
+	i := "Nîmes"
 	e := 1663
 	r := getTeamIDFromMap(i)
 	if r != e {

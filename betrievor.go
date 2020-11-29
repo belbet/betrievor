@@ -74,10 +74,17 @@ func fte(c *cli.Context) error {
 	matches := r.MatchesProba{}
 	log.Printf("Retrieving %s\n", c.String("competition"))
 	err := matches.ParsePageFTE(c.String("competition"))
+	dryRun := c.String("dry-run")
 	if err != nil {
 		return err
 	}
 	// TODO: Insert to DB
+	if dryRun != "true" {
+		err := rdb.DB(d.Db).Table(d.Table).Insert(matches.Matches).Exec(session)
+		if err != nil {
+			log.Fatalln(err)
+		}
+	}
 	return nil
 }
 
@@ -110,6 +117,7 @@ func worker(job <-chan jobStruct, results chan<- bool, c *cli.Context) {
 			log.Fatalln(err)
 		}
 		if dryRun != "true" {
+			// Table must be configured with MatchID as primary key
 			err := rdb.DB(d.Db).Table(d.Table).Insert(r.Matches).Exec(session)
 			if err != nil {
 				log.Fatalln(err)
