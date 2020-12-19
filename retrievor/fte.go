@@ -137,7 +137,7 @@ func (m *MatchProba) setMatchID() {
 }
 
 func getTeamIDFromMap(n string) int {
-	for _, v := range teamMap {
+	for _, v := range TeamMap {
 		if v.CompetitorFTEName == n {
 			return v.CompetitorID
 		}

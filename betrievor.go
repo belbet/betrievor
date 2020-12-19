@@ -7,6 +7,7 @@ import (
 	"time"
 
 	r "github.com/belbet/betrievor/retrievor"
+	"github.com/joho/godotenv"
 
 	"github.com/caarlos0/env"
 	"github.com/urfave/cli/v2"
@@ -49,8 +50,8 @@ type database struct {
 	User     string `long:"user" description:"the user to connect to the db with" env:"DB_USER" envDefault:"admin"`
 	Password string `long:"password" description:"the password to connect to the db" env:"DB_PASS"`
 	Type     string `long:"type" description:"the type of database used: only rethinkdb for now" env:"DB_TYPE" envDefault:"rethinkdb"`
-	Db       string `long:"db" description:"the name of the db" env:"DB_NAME" envDefault:"test"`
-	Table    string `long:"table" description:"the name of the table" env:"DB_TABLE" envDefault:"test"`
+	Db       string `long:"db" description:"the name of the db" env:"DB_NAME" envDefault:"raw"`
+	Table    string `long:"table" description:"the name of the table" env:"DB_TABLE" envDefault:"fte_predictions"`
 }
 
 func getDatabaseConfig() database {
@@ -69,6 +70,31 @@ var (
 		Password: d.Password,
 	})
 )
+
+func setup(c *cli.Context) error {
+	fteTableOpts := rdb.TableCreateOpts{PrimaryKey: "MatchID"}
+	err := rdb.DB(d.Db).TableCreate(d.Table, fteTableOpts).Exec(session)
+	if err != nil {
+		log.Println(err)
+	} else {
+		log.Println("FTE Predictions table created")
+	}
+	teamMapOpts := rdb.TableCreateOpts{PrimaryKey: "CompetitorID"}
+	err = rdb.DB(d.Db).TableCreate("team_map", teamMapOpts).Exec(session)
+	if err != nil {
+		log.Println(err)
+	} else {
+		log.Println("Team map table created")
+	}
+	teamMapInsertOpts := rdb.InsertOpts{Conflict: "replace"}
+	err = rdb.DB(d.Db).Table("team_map").Insert(r.TeamMap, teamMapInsertOpts).Exec(session)
+	if err != nil {
+		log.Println(err)
+	} else {
+		log.Println("Team map table filled")
+	}
+	return nil
+}
 
 func fte(c *cli.Context) error {
 	matches := r.MatchesProba{}
@@ -163,6 +189,10 @@ func matches(c *cli.Context) error {
 }
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 	cli.AppHelpTemplate = fmt.Sprintf(helpTemplate)
 	app := cli.NewApp()
 	app.Name = appName
@@ -173,7 +203,7 @@ func main() {
 		{
 			Name:    "retrieve",
 			Aliases: []string{"r"},
-			Usage:   "Fetch required data. ",
+			Usage:   "Fetch required data.",
 			Subcommands: []*cli.Command{
 				{
 					Name:   "clubs",
@@ -240,9 +270,15 @@ func main() {
 				},
 			},
 		},
+		{
+			Name:    "setup",
+			Aliases: []string{"s"},
+			Usage:   "Setup Database and push existing teamMap",
+			Action:  setup,
+		},
 	}
 	log.Println("Betrievor")
-	err := app.Run(os.Args)
+	err = app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}
