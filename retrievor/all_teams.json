@@ -98,5 +98,100 @@
         "competitorId": 1663, 
         "competitorWinamaxName": "N\u00eemes",
         "competitorFTEName": "N\u00eemes"
+    },
+    "3": {
+        "competitorId": 3,
+        "competitorWinamaxName": "Wolverhampton",
+        "competitorFTEName": "Wolves"
+    },
+    "8": {
+        "competitorId": 8,
+        "competitorWinamaxName": "West Bromwich",
+        "competitorFTEName": "West Brom"
+    },
+    "34": {
+        "competitorId": 34,
+        "competitorWinamaxName": "Leeds",
+        "competitorFTEName": "Leeds United"
+    },
+    "30": {
+        "competitorId": 30,
+        "competitorWinamaxName": "Brighton",
+        "competitorFTEName": "Brighton"
+    },
+    "37": {
+        "competitorId": 37,
+        "competitorWinamaxName": "West Ham",
+        "competitorFTEName": "West Ham"
+    },
+    "6": {
+        "competitorId": 6,
+        "competitorWinamaxName": "Burnley",
+        "competitorFTEName": "Burnley"
+    },
+    "43": {
+        "competitorId": 43,
+        "competitorWinamaxName": "Fulham",
+        "competitorFTEName": "Fulham"
+    },
+    "38": {
+        "competitorId": 38,
+        "competitorWinamaxName": "Chelsea",
+        "competitorFTEName": "Chelsea"
+    },
+    "31": {
+        "competitorId": 31,
+        "competitorWinamaxName": "Leicester",
+        "competitorFTEName": "Leicester"
+    },
+    "45": {
+        "competitorId": 45,
+        "competitorWinamaxName": "Southampton",
+        "competitorFTEName": "Southampton"
+    },
+    "15": {
+        "competitorId": 15,
+        "competitorWinamaxName": "Sheffield United",
+        "competitorFTEName": "Sheffield Utd"
+    },
+    "33": {
+        "competitorId": 33,
+        "competitorWinamaxName": "Tottenham",
+        "competitorFTEName": "Tottenham"
+    },
+    "44": {
+        "competitorId": 44,
+        "competitorWinamaxName": "Liverpool",
+        "competitorFTEName": "Liverpool"
+    },
+    "35": {
+        "competitorId": 35,
+        "competitorWinamaxName": "Manchester United",
+        "competitorFTEName": "Man. United"
+    },
+    "17": {
+        "competitorId": 17,
+        "competitorWinamaxName": "Manchester City",
+        "competitorFTEName": "Man. City"
+    },
+    "7": {
+        "competitorId": 7,
+        "competitorWinamaxName": "Crystal Palace",
+        "competitorFTEName": "Crystal Palace"
+    },
+    "42": {
+        "competitorId": 42,
+        "competitorWinamaxName": "Arsenal",
+        "competitorFTEName": "Arsenal"
+    },
+    "39": {
+        "competitorId": 39,
+        "competitorWinamaxName": "Newcastle",
+        "competitorFTEName": "Newcastle"
+    },
+    "40": {
+        "competitorId": 40,
+        "competitorWinamaxName": "Aston Villa",
+        "competitorFTEName": "Aston Villa"
     }
 }

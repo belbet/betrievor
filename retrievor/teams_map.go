@@ -1,9 +1,9 @@
 package retrievor
 
 type Team struct {
-	CompetitorID          int    `json:"competitorId"`
-	CompetitorWinamaxName string `json:"competitorWinamaxName"`
-	CompetitorFTEName     string `json:"competitorFTEName"`
+	CompetitorID          int    `json:"CompetitorID"`
+	CompetitorWinamaxName string `json:"CompetitorWinamaxName"`
+	CompetitorFTEName     string `json:"CompetitorFTEName"`
 }
 
 var TeamMap = []Team{
@@ -106,5 +106,100 @@ var TeamMap = []Team{
 		CompetitorID:          1663,
 		CompetitorWinamaxName: "N\u00eemes",
 		CompetitorFTEName:     "N\u00eemes",
+	},
+	{
+		CompetitorID:          3,
+		CompetitorWinamaxName: "Wolverhampton",
+		CompetitorFTEName:     "Wolves",
+	},
+	{
+		CompetitorID:          8,
+		CompetitorWinamaxName: "West Bromwich",
+		CompetitorFTEName:     "West Brom",
+	},
+	{
+		CompetitorID:          34,
+		CompetitorWinamaxName: "Leeds",
+		CompetitorFTEName:     "Leeds United",
+	},
+	{
+		CompetitorID:          30,
+		CompetitorWinamaxName: "Brighton",
+		CompetitorFTEName:     "Brighton",
+	},
+	{
+		CompetitorID:          37,
+		CompetitorWinamaxName: "West Ham",
+		CompetitorFTEName:     "West Ham",
+	},
+	{
+		CompetitorID:          6,
+		CompetitorWinamaxName: "Burnley",
+		CompetitorFTEName:     "Burnley",
+	},
+	{
+		CompetitorID:          43,
+		CompetitorWinamaxName: "Fulham",
+		CompetitorFTEName:     "Fulham",
+	},
+	{
+		CompetitorID:          38,
+		CompetitorWinamaxName: "Chelsea",
+		CompetitorFTEName:     "Chelsea",
+	},
+	{
+		CompetitorID:          31,
+		CompetitorWinamaxName: "Leicester",
+		CompetitorFTEName:     "Leicester",
+	},
+	{
+		CompetitorID:          45,
+		CompetitorWinamaxName: "Southampton",
+		CompetitorFTEName:     "Southampton",
+	},
+	{
+		CompetitorID:          15,
+		CompetitorWinamaxName: "Sheffield United",
+		CompetitorFTEName:     "Sheffield Utd",
+	},
+	{
+		CompetitorID:          33,
+		CompetitorWinamaxName: "Tottenham",
+		CompetitorFTEName:     "Tottenham",
+	},
+	{
+		CompetitorID:          44,
+		CompetitorWinamaxName: "Liverpool",
+		CompetitorFTEName:     "Liverpool",
+	},
+	{
+		CompetitorID:          35,
+		CompetitorWinamaxName: "Manchester United",
+		CompetitorFTEName:     "Man. United",
+	},
+	{
+		CompetitorID:          17,
+		CompetitorWinamaxName: "Manchester City",
+		CompetitorFTEName:     "Man. City",
+	},
+	{
+		CompetitorID:          7,
+		CompetitorWinamaxName: "Crystal Palace",
+		CompetitorFTEName:     "Crystal Palace",
+	},
+	{
+		CompetitorID:          42,
+		CompetitorWinamaxName: "Arsenal",
+		CompetitorFTEName:     "Arsenal",
+	},
+	{
+		CompetitorID:          39,
+		CompetitorWinamaxName: "Newcastle",
+		CompetitorFTEName:     "Newcastle",
+	},
+	{
+		CompetitorID:          40,
+		CompetitorWinamaxName: "Aston Villa",
+		CompetitorFTEName:     "Aston Villa",
 	},
 }
